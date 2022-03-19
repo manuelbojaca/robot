@@ -5,13 +5,19 @@ export class InvalidInputError extends Error {
   }
 }
 
+const directions = ["east", "west", "north", "south"];
+
 export class Robot {
-  orient() {
-    //Delete and write code
+  orient(position) {
+    if (!directions.includes(position)) {
+      throw new InvalidInputError("wrong error");
+    } else {
+      this.location = position;
+    }
   }
 
   get bearing() {
-    //Delete and write code
+    return this.location;
   }
 
   get coordinates() {
@@ -37,11 +43,9 @@ export class Robot {
   static instructions() {
     //Delete and write code
   }
-
   place() {
     //Delete and write code
   }
-
   evaluate() {
     //Delete and write code
   }
